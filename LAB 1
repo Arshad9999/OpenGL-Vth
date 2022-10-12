@@ -1,1 +1,55 @@
-
+//Write a Program for printing a white Line on Black Color Background
+//code
+#include<GL/freeglut.h>
+//Main is our entry point function
+//Entry point :- We don't have to call this, OS calls it.
+//This is the first function which runs
+void main(int argc, char* argv[]) //Entry Point function
+{
+	//Function Declarations/Signatures
+	void initializeMyOpenGL(void);
+	void display(void);
+	//code
+	glutInit(&argc, argv); //to init the GLUT Library.
+	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGBA);
+	//GLUT_SINGLE = Single Buffering
+	//GLUT_RGBA = Red, green, Blue, Alpha(Transparent)
+	glutInitWindowSize(800, 600); //800 - Width, 600- Height
+	glutInitWindowPosition(100, 50); //100 - StartingX, 50 - StartingY
+	glutCreateWindow("Miss.Vandana's Window"); //Caption of the Window
+	initializeMyOpenGL(); //calling the function
+	//Keep the whole display in the loop.
+	glutDisplayFunc(display);
+	glutMainLoop();
+}
+void initializeMyOpenGL(void)
+{
+	//code
+	//This will be your first OpenGL call.
+	glClearColor(0.0f, 0.0f, 0.0f, 1.0f); //Clear the Background Color
+}
+void display(void)
+{
+	//code
+	//this is taking values from glClearColor and clearing the
+	//whole buffer with those specific values.
+	glClear(GL_COLOR_BUFFER_BIT);
+	glLoadIdentity(); //this will bring the whole coordinate system to the centre
+	//3 things to remember
+	//Vertices are anticlockwise
+	//glBegin(GL_TRIANGLES) You can find various options in the documentation
+	//documentation of glBegin can be found on this link - https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/glBegin.xml
+	//OpenGL is state Machine
+	//State Machine :- If you lock one Model(Triangle) in one state
+	//it won't change untill you don't change the state of that
+	glBegin(GL_LINES);
+	//NOTE :- all of the vertices should be in the anticlockwise direction
+	glColor3f(1.0f, 1.0f, 1.0f);
+	glVertex2f(0.0f, 1.0f); //Vertex 1
+	//glColor3f(0.0f, 1.0f, 0.0f);
+	glVertex2f(0.0f, 2.0f);//Vertex 2
+	//glColor3f(0.0f, 0.0f, 1.0f);
+	glEnd();
+	glFlush(); //SingleBuffer
+	//Clear the whole buffer and make it ready for the next frame
+}
