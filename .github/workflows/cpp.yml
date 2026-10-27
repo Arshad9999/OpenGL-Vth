@@ -1,0 +1,29 @@
+name: C++ build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Install OpenGL and FreeGLUT development libraries
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes freeglut3-dev libgl1-mesa-dev libglu1-mesa-dev
+
+      - name: Configure
+        run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+
+      - name: Compile all labs
+        run: cmake --build build --parallel 2

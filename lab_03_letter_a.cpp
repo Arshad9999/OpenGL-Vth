@@ -1,10 +1,10 @@
-//Write a Program for Parellel lines with different colors
+// Write a Program to Create Alphabet A
 //code
 #include<GL/freeglut.h>
 //Main is our entry point function
 //Entry point :- We don't have to call this, OS calls it.
 //This is the first function which runs
-void main(int argc, char* argv[]) //Entry Point function
+int main(int argc, char* argv[]) //Entry Point function
 {
 	//Function Declarations/Signatures
 	void initializeMyOpenGL(void);
@@ -21,6 +21,7 @@ void main(int argc, char* argv[]) //Entry Point function
 	//Keep the whole display in the loop.
 	glutDisplayFunc(display);
 	glutMainLoop();
+	return 0;
 }
 void initializeMyOpenGL(void)
 {
@@ -45,18 +46,18 @@ void display(void)
 	glBegin(GL_LINES);
 	//NOTE :- all of the vertices should be in the anticlockwise direction
 	glColor3f(1.0f, 0.0f, 0.0f);
-	glVertex2f(-0.8f, -0.8f); //Vertex 1
+	glVertex2f(-0.5f, -0.5f); //Vertex 1
 	//glColor3f(0.0f, 1.0f, 0.0f);
-	glVertex2f(0.8f, 0.8f);//Vertex 2
+	glVertex2f(0.0f, 0.5f);//Vertex 2
 	//glColor3f(0.0f, 0.0f, 1.0f);
 	glColor3f(0.0f, 0.0f, 1.0f);
-	glVertex2f(-0.7f, -0.8f); //Vertex 1
+	glVertex2f(0.0f, 0.5f); //Vertex 1
 	//glColor3f(0.0f, 1.0f, 0.0f);
-	glVertex2f(0.9f, 0.8f);
+	glVertex2f(0.5f, -0.5f);
 	glColor3f(0.0f, 1.0f, 0.0f);
-	glVertex2f(-0.9f, -0.8f); //Vertex 1
+	glVertex2f(-0.25f, 0.0f); //Vertex 1
 	//glColor3f(0.0f, 1.0f, 0.0f);
-	glVertex2f(0.7f, 0.8f);
+	glVertex2f(0.25f, 0.0f);
 	glEnd();
 	glFlush(); //SingleBuffer
 	//Clear the whole buffer and make it ready for the next frame
