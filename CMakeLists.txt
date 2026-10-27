@@ -8,11 +8,11 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 find_package(OpenGL REQUIRED)
 find_package(GLUT REQUIRED)
 
-file(GLOB LAB_SOURCES CONFIGURE_DEPENDS "LAB *.cpp")
+file(GLOB LAB_SOURCES CONFIGURE_DEPENDS "lab_*.cpp")
 
 foreach(source IN LISTS LAB_SOURCES)
   get_filename_component(filename "${source}" NAME)
-  string(REGEX MATCH "LAB ([0-9]+)" _ "${filename}")
+  string(REGEX MATCH "lab_([0-9]+)" _ "${filename}")
   set(target "lab_${CMAKE_MATCH_1}")
 
   add_executable("${target}" "${source}")

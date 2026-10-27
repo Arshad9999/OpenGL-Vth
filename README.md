@@ -12,7 +12,7 @@ Fifteen independent C++ exercises demonstrating classic immediate-mode OpenGL an
 | 11–13 | 2D scenes and animated transformations |
 | 14–15 | Rotating 3D cube and pyramid |
 
-Each `.cpp` file is a separate executable with its own `main` function.
+Each `lab_*.cpp` file is a separate executable with its own `main` function. Portable lowercase filenames are used so the CMake project works consistently across Windows, Linux, and macOS filesystems.
 
 ## Requirements
 
