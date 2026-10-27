@@ -5,7 +5,7 @@
 //Main is our entry point function
 //Entry point :- We don't have to call this, OS calls it.
 //This is the first function which runs
-void main(int argc, char* argv[]) //Entry Point function
+int main(int argc, char* argv[]) //Entry Point function
 {
 	//Function Declarations/Signatures
 	void initializeMyOpenGL(void);
@@ -22,6 +22,7 @@ void main(int argc, char* argv[]) //Entry Point function
 	//Keep the whole display in the loop.
 	glutDisplayFunc(display);
 	glutMainLoop();
+	return 0;
 }
 void initializeMyOpenGL(void)
 {
